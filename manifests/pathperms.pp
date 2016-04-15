@@ -1,8 +1,8 @@
-# defined type os_hardening::pathperms {
+# defined type os_hardening::pathperms
 define os_hardening::pathperms {
-  file { "os_hardening_${name}" :
+  file { "os_hardening ${title}" :
+    path    => $title,
     ensure  => 'directory',
-    path    => $name,
     links   => 'follow',
     mode    => 'go-w',
     recurse => true,
