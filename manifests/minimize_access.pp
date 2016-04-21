@@ -60,7 +60,8 @@ class os_hardening::minimize_access (
   $target_system_users = difference($system_users, $ignore_users_arr)
 
   # ensure accounts are locked (no password) and use nologin shell
-  os_hardening::lockdown_users { $target_system_users }
+  os_hardening::lockdown_users { $target_system_users: }
+
   #user { "osh_${target_system_users}":
   #  ensure   => present,
   #  shell    => '/usr/sbin/nologin',
